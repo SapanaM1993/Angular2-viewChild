@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import {ChildComponent} from "./child/child.component";
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  @ViewChild(ChildComponent)
+  private childComponent:ChildComponent;
+  increase(){
+    this.childComponent.increaseCount();
+  }
+  decrease(){
+    this.childComponent.decreaseCount();
+  }
+
 }
+
